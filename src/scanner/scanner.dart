@@ -37,6 +37,7 @@ class Scanner {
         }
       }
     }
+    result.add('<eof>');
     return result;
   }
 }
