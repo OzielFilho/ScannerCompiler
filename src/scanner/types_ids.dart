@@ -5,11 +5,14 @@ List<String> _typeVariable = [
   'var',
   'bool',
   'final',
+  'return',
 ];
 List<String> _typeOthers = [
   '(',
   ')',
   '{',
+  '<',
+  '>',
   '}',
   ';',
   '=',
@@ -19,10 +22,14 @@ List<String> _typeOthers = [
   '-',
   '/',
   '*',
+  '&'
 ];
 List<String> _equalsType = [
   '==',
+  '&&',
   '!=',
+  '<=',
+  '>=',
   '!!',
   '??',
   '++',

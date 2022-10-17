@@ -18,7 +18,7 @@ class Scanner {
         if (isTypeVariable(auxInput) || isTypeCondicional(auxInput)) {
           result.add('<$auxInput>');
         } else {
-          result.add('<$auxInput,id>');
+          result.add('<$auxInput,${Validations.typeWord(auxInput)}>');
         }
         auxInput = '';
       }
