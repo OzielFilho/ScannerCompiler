@@ -40,7 +40,7 @@ List<String> _equalsType = [
   '*=',
 ];
 
-List<String> _comments = ["\\"];
+List<String> _comments = ["/"];
 
 List<String> _typeCondicionals = ['if', 'for', 'while', 'else'];
 

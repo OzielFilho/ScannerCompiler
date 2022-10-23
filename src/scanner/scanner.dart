@@ -9,18 +9,18 @@ class Scanner {
   List<String> call() {
     List<String> result = [];
     for (int i = 0; i <= input.length - 1; i++) {
-      if (Validations.isAlfa(input[i]) && input[i] != ' ') {
-        String auxInput = '';
+      if (Validations.isAlfa(input[i])) {
+        String auxAlfa = '';
         while (Validations.isAlfa(input[i])) {
-          auxInput += input[i];
+          auxAlfa += input[i];
           i++;
         }
-        if (isTypeVariable(auxInput) || isTypeCondicional(auxInput)) {
-          result.add('<$auxInput>');
+        if (isTypeVariable(auxAlfa) || isTypeCondicional(auxAlfa)) {
+          result.add('<$auxAlfa>');
         } else {
-          result.add('<$auxInput,${Validations.typeWord(auxInput)}>');
+          result.add('<$auxAlfa,${Validations.typeWord(auxAlfa)}>');
         }
-        auxInput = '';
+        auxAlfa = '';
       }
 
       if (isTypeOthers(input[i])) {
@@ -34,6 +34,16 @@ class Scanner {
           }
         } else {
           result.add('<${input[i]}>');
+        }
+      }
+
+      if (isComment(input[i])) {
+        if (i + 1 < input.length) {
+          if (isComment(input[i + 1])) {
+            result.removeLast();
+            result.add('<eof>');
+            return result;
+          }
         }
       }
     }
