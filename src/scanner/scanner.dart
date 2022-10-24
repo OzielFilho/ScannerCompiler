@@ -1,12 +1,12 @@
 import 'types_ids.dart';
 import 'utils/validations.dart';
 
-class Scanner {
-  final String input;
+abstract class Scanner {
+  List<String> call(String input);
+}
 
-  Scanner(this.input);
-
-  List<String> call() {
+class ScannerImpl implements Scanner {
+  List<String> call(String input) {
     List<String> result = [];
     for (int i = 0; i <= input.length - 1; i++) {
       if (Validations.isAlfa(input[i])) {
@@ -23,10 +23,10 @@ class Scanner {
         auxAlfa = '';
       }
 
-      if (isTypeOthers(input[i])) {
+      if (isTypeSeparatorsAndVerifications(input[i])) {
         if (i + 1 < input.length) {
-          if (isTypeOthers(input[i + 1]) &&
-              isTypeEquals(input[i] + input[i + 1])) {
+          if (isTypeSeparatorsAndVerifications(input[i + 1]) &&
+              isTypeOperator(input[i] + input[i + 1])) {
             result.add('<${input[i]}${input[i + 1]}>');
             i++;
           } else {
