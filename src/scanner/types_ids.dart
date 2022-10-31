@@ -9,6 +9,8 @@ List<String> _typeVariable = [
   'if',
   'else',
   'true',
+  'print',
+  'in',
   'false'
 ];
 List<String> _typeSeparatorsAndVerifications = [
