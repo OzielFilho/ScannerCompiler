@@ -3,9 +3,12 @@ import 'utils/validations.dart';
 
 abstract class Scanner {
   List<String> call(String input);
+  String nextToken(List<String> tokens);
+  List<String> removeFirstItemToken(List<String> tokens);
 }
 
 class ScannerImpl implements Scanner {
+  @override
   List<String> call(String input) {
     List<String> result = [];
     for (int i = 0; i <= input.length - 1; i++) {
@@ -50,4 +53,10 @@ class ScannerImpl implements Scanner {
     result.add('<eof>');
     return result;
   }
+
+  @override
+  String nextToken(List<String> tokens) => tokens.first;
+
+  @override
+  List<String> removeFirstItemToken(List<String> tokens) => tokens.sublist(1);
 }
